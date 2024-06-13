@@ -9,11 +9,15 @@ int main() {
 	cin >> nota2;
 	cout << "Ingrese la tercera nota: ";
 	cin >> nota3;
-	promedio = ( nota1 + nota2 + nota3 ) / 3;
-	if ( promedio < 70 ) {
-		cout << "Esta desaprobado" << endl;
+	if ( nota1 >= 0 and nota2 >= 0 and nota3 >= 0 ) {
+		promedio = ( nota1 + nota2 + nota3 ) / 3;
+		if ( promedio < 70 ) {
+			cout << "Esta desaprobado" << endl;
+		} else {
+			cout << "Esta aprobado" << endl;
+		}
 	} else {
-		cout << "Esta aprobado" << endl;
+		cout << "Ingreso notas invalidas" << endl;
 	}
 	return 0;
 }
