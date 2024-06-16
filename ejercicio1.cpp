@@ -1,8 +1,23 @@
 #include <iostream>
 using namespace std;
+string promedioNota ( double x, double y, double z) {
+	string m;
+	if ( x >= 0 && x <= 100 && y >= 0 && y <= 100 && z >= 0 && z <= 100 ) {
+		double p = ( x + y + z ) / 3;
+		if ( p < 70 ) {
+			m = "Esta desaprobado";
+		} else {
+			m = "Esta aprobado";
+		}
+	} else {
+		m = "Ingreso notas invalidas";
+	}
+	return m;
+}
 
 int main() {
-	double nota1, nota2, nota3, promedio;
+	double nota1, nota2, nota3;
+	string mensaje;
 	bool verificador = false;
 	do {
 		cout << "Ingrese la primera nota (Nota de 0 a 100 puntos): ";
@@ -11,16 +26,12 @@ int main() {
 		cin >> nota2;
 		cout << "Ingrese la tercera nota (Nota de 0 a 100 puntos): ";
 		cin >> nota3;
-		if ( nota1 >= 0 && nota2 >= 0 && nota3 >= 0 && nota1 <= 100 && nota2 <= 100 && nota3 <= 100 ) {
-			promedio = ( nota1 + nota2 + nota3 ) / 3;
-			if ( promedio < 70 ) {
-				cout << "Esta desaprobado" << endl;
-			} else {
-				cout << "Esta aprobado" << endl;
-			}
+		mensaje = promedioNota ( nota1, nota2, nota3 );
+		if ( mensaje != "Ingreso notas invalidas" ) {
 			verificador = true;
+			cout << mensaje << endl;
 		} else {
-			cout << "Ingreso notas invalidas" << endl;
+			cout << mensaje << endl;
 		}
 	} while ( verificador != true );
 	return 0;
