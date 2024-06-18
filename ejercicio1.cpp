@@ -10,29 +10,40 @@ string promedioNota ( double x, double y, double z) {
 			m = "Esta aprobado";
 		}
 	} else {
-		m = "Ingreso notas invalidas";
+		m = "ERROR: Ingreso notas invalidas";
 	}
 	return m;
 }
 
 int main() {
 	double nota1, nota2, nota3;
-	string mensaje;
-	bool verificador = false;
+	string mensaje, continuar;
+	cout << "-------------------------------------------------------" << endl;
+	cout << "      Programa para sacar el promedio de 3 notas       " << endl;
+	cout << "-------------------------------------------------------" << endl;
 	do {
-		cout << "Ingrese la primera nota (Nota de 0 a 100 puntos): ";
+		cout << "Ingrese la primera nota (Nota de 0 a 100 puntos) => ";
 		cin >> nota1;
-		cout << "Ingrese la segunda nota (Nota de 0 a 100 puntos): ";
+		cout << "-------------------------------------------------------" << endl;
+		cout << "Ingrese la segunda nota (Nota de 0 a 100 puntos) => ";
 		cin >> nota2;
-		cout << "Ingrese la tercera nota (Nota de 0 a 100 puntos): ";
+		cout << "-------------------------------------------------------" << endl;
+		cout << "Ingrese la tercera nota (Nota de 0 a 100 puntos) => ";
 		cin >> nota3;
+		cout << "-------------------------------------------------------" << endl;
 		mensaje = promedioNota ( nota1, nota2, nota3 );
 		if ( mensaje != "Ingreso notas invalidas" ) {
-			verificador = true;
 			cout << mensaje << endl;
+			cout << "-------------------------------------------------------" << endl;
 		} else {
 			cout << mensaje << endl;
+			cout << "-------------------------------------------------------" << endl;
 		}
-	} while ( verificador != true );
+		cout << "Desea continuar ingresando notas (si o no) => ";
+		cin >> continuar;
+		cout << "-------------------------------------------------------" << endl;
+	} while ( continuar != "no" );
+	cout << "Gracias por usar el programa :D" << endl;
+	cout << "-------------------------------------------------------" << endl;
 	return 0;
 }
