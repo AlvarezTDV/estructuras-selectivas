@@ -5,9 +5,9 @@ string promedioNota ( double x, double y, double z) {
 	if ( x >= 0 && x <= 100 && y >= 0 && y <= 100 && z >= 0 && z <= 100 ) {
 		double p = ( x + y + z ) / 3;
 		if ( p < 70 ) {
-			m = "Esta desaprobado";
+			m = " esta desaprobado";
 		} else {
-			m = "Esta aprobado";
+			m = " esta aprobado";
 		}
 	} else {
 		m = "ERROR: Ingreso notas invalidas";
@@ -17,11 +17,14 @@ string promedioNota ( double x, double y, double z) {
 
 int main() {
 	double nota1, nota2, nota3;
-	string mensaje, continuar;
+	string mensaje, continuar, nombreEstudiante;
 	cout << "-------------------------------------------------------" << endl;
 	cout << "      Programa para sacar el promedio de 3 notas       " << endl;
 	cout << "-------------------------------------------------------" << endl;
 	do {
+		cout << "Ingrese el nombre del estudiante => ";
+		cin >> nombreEstudiante;
+		cout << "-------------------------------------------------------" << endl;
 		cout << "Ingrese la primera nota (Nota de 0 a 100 puntos) => ";
 		cin >> nota1;
 		cout << "-------------------------------------------------------" << endl;
@@ -32,8 +35,8 @@ int main() {
 		cin >> nota3;
 		cout << "-------------------------------------------------------" << endl;
 		mensaje = promedioNota ( nota1, nota2, nota3 );
-		if ( mensaje != "Ingreso notas invalidas" ) {
-			cout << mensaje << endl;
+		if ( mensaje != "ERROR: Ingreso notas invalidas" ) {
+			cout << nombreEstudiante << mensaje << endl;
 			cout << "-------------------------------------------------------" << endl;
 		} else {
 			cout << mensaje << endl;
